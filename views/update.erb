@@ -1,0 +1,42 @@
+<%# -*- coding: utf-8 -*-%>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <title>蔵書管理</title>
+</head>
+<body>
+<h1>蔵書管理</h1>
+<h2>蔵書データの登録</h2>
+<p>登録データを入力してください｜
+<a href="/">元に戻る</a>
+<hr>
+
+<form method="post" action="edit">
+<input type="hidden" name="id" value="<%= @bookinfo.id %>">
+<table>
+  <tr>
+    <th>項目名</th><th>入力データ</th>
+  </tr>
+  <tr>
+    <td>タイトル</td>
+    <td><input type="text" name="title" size="60" value="<%= @bookinfo.title %>"></td>
+  <tr>
+    <td>著者</td>
+    <td><input type="text" name="author" size="60" value="<%= @bookinfo.author %>"></td>
+  </tr>
+  <tr>
+    <td>ページ</td>
+    <td><input type="text" name="page" size="60" value="<%= @bookinfo.page %>"></td>
+  </tr>
+  <tr>
+    <td>出版日</td>
+    <td><input type="text" name="date_available" size="60" value="<%= @bookinfo.date_available %>"></td>
+  </tr>
+</table>
+<input type="submit" value="更新を実行" />
+</form>
+
+<hr>
+</body>
+</html>

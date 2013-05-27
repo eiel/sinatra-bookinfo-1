@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Bookinfo</title>
+</head>
+<body>
+<h1>蔵書管理</h1>
+<h2>蔵書データの表示</h2>
+<p>処理する蔵書データを選択してください｜
+<a href="retrieve">蔵書データの検索</a>
+
+<hr>
+
+<table border>
+<tr>
+  <th>id</th>
+  <th>タイトル</th>
+  <th>著者</th>
+  <th>ページ数</th>
+  <th>出版日</th>
+  <th>修正</th>
+</tr>
+
+<% @bookinfos.each do |info| %>
+<tr>
+<td><%= info.id %></td>
+<td><%= info.title %></td>
+<td><%= info.author %></td>
+<td><%= info.page %></td>
+<td><%= info.date_available %></td>
+<td><a href="http://localhost:4567/update?id=<%=info.id %>">
+<%= info.id %></a></td>
+<form method="post" action="del">
+<td><input type="submit" value="削除"></td>
+<input type="hidden" name="id" value="<%= info.id %>">
+<input type="hidden" name="_method" value="delete">
+</form>
+</tr>
+<% end %>
+
+<form method="post" action="new">
+<tr>
+<td><input type="text" name="id"></td>
+<td><input type="text" name="title"></td>
+<td><input type="text" name="author"></td>
+<td><input type="text" name="page"></td>
+<td><input type="text" name="date_available"></td>
+<td></td>
+<td><input type="submit" value="登録"></td>
+</tr>
+</form>
+
+</table>
+</body>
+</html>
