@@ -6,6 +6,10 @@ require 'erb'
 ActiveRecord::Base.configurations = YAML.load_file('database.yml')
 ActiveRecord::Base.establish_connection('development')
 
+after do
+  ActiveRecord::Base.connection.close
+end
+
 class Bookinfo < ActiveRecord::Base
 end
 
